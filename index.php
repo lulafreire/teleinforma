@@ -6,28 +6,20 @@ header('Content-Type: text/html; charset=UTF-8');
 require_once("vendor/autoload.php");
 require("functions.php");
 
+// Classes
 use Teleinforma\Favorites;
-use Teleinforma\Page;
-use Teleinforma\Users;
-use Teleinforma\Vaga;
-use Teleinforma\Links;
+
+// Slim
 use Slim\Slim;
 
+// Inicializando o aplilcativo
 $app = new \Slim\Slim();
-
-	
-
 $app->config('debug', true);
 
-include __DIR__.'/routes/files.php';
-include __DIR__.'/routes/digital.php';
-include __DIR__.'/routes/team.php';
-include __DIR__.'/routes/login.php';
-include __DIR__.'/routes/links.php';
-include __DIR__.'/routes/forms.php';
-include __DIR__.'/routes/profile.php';
-include __DIR__.'/routes/attachments.php';
+// Rotas
+include __DIR__.'/routes/api.php';
 
+// Rota inicial
 $app->get('/', function() {
 
 	// Verifica se há usuário logado
